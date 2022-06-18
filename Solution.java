@@ -2,6 +2,22 @@ import java.util.*;
 
 
 public class Solution {
+    public static int minMaxGame(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        if (nums.length == 2) {
+            return Math.min(nums[0], nums[1]);
+        }
+        int[] newNums = new int[nums.length/2];
+        for (int i = 0; i < newNums.length; i += 2) {
+            newNums[i] = Math.min(nums[2*i], nums[2*i+1]);
+            newNums[i+1] = Math.max(nums[2*i+2], nums[2*i+3]);
+        }
+        return minMaxGame(newNums);
+    }
+
+    
     public static int findLHS(int[] nums) {
         Map<Integer, Integer> counts = new HashMap<>();
         for (int num : nums) {

@@ -2,6 +2,18 @@ import math
 
 
 class Solution:
+    def minMaxGame(self, nums: list[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
+        newNums = [0] * int(len(nums)/2)
+        for i in range(int(len(nums)/2)):
+            if i % 2 == 0:
+                newNums[i] = min(nums[2 * i], nums[2 * i + 1])
+            else:
+                newNums[i] = max(nums[2 * i], nums[2 * i + 1])
+        return self.minMaxGame(newNums)        
+
+    
     def findLHS(self, nums: list[int]) -> int:
         counts = {}
         for num in nums:
