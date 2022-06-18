@@ -1,4 +1,28 @@
+import java.util.*;
+
+
 public class Solution {
+    public static int findLHS(int[] nums) {
+        Map<Integer, Integer> counts = new HashMap<>();
+        for (int num : nums) {
+            counts.put(num, counts.getOrDefault(num, 0) + 1);
+        }
+
+        counts = new TreeMap<>(counts);
+        List<Integer> keys = new ArrayList<>(counts.keySet());
+        int maxCount = 0;
+        for (int i = 0; i < keys.size() - 1; i++) {
+            if (keys.get(i) == keys.get(i + 1) - 1) {
+                int curCount = counts.get(keys.get(i)) + counts.get(keys.get(i + 1));
+                if (curCount > maxCount) {
+                    maxCount = curCount;
+                }
+            }
+        }
+        
+        return maxCount;
+    }
+    
     public static int romanToInt(String s) {
         int result = 0;
         char[] sArray = s.toCharArray();

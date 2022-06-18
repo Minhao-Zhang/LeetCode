@@ -1,7 +1,17 @@
+from collections import Counter
 import math
 
 
 class SampleSolution:
+    def findLHS(self, nums: list[int]) -> int:
+        c = Counter(nums)
+        largestlength = 0 
+        for n in c: 
+            if n+1 in c: 
+                largestlength = max(largestlength, c[n]+c[n+1])
+                
+        return largestlength
+    
     def romanToInt(self, s: str) -> int:
         roman_table = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
         num = 0

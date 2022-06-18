@@ -2,6 +2,22 @@ import math
 
 
 class Solution:
+    def findLHS(self, nums: list[int]) -> int:
+        counts = {}
+        for num in nums:
+            if num not in counts:
+                counts[num] = 1
+            else:
+                counts[num] = counts[num] + 1
+        longest = 0
+        for key in counts.keys():
+            if (key + 1) in counts:
+                temp = counts.get(key) + counts.get(key + 1)
+                if temp > longest:
+                    longest = temp
+        
+        return longest
+    
     def romanToInt(self, s: str) -> int:
         ans = 0
         num = 0
