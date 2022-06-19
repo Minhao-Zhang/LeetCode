@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         long startTime = System.nanoTime();
-        System.out.println(Solution.minMaxGame(new int[]{1,3,5,2,4,8,2,2}));
+        System.out.println(Solution.combinationSum2(new int[]{1,1,2,1}, 4));
         long endTime = System.nanoTime();
         long startSolutionTime = System.nanoTime();
         System.out.println(SampleSolution.minMaxGame(new int[]{1,3,5,2,4,8,2,2}));

@@ -1,8 +1,38 @@
 import math
+from typing import List
 
 
 class Solution:
-    def minMaxGame(self, nums: list[int]) -> int:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        res: list[list[int]] = list()
+        if len(candidates) == 0:
+            return res
+        
+        counts = [0]*51
+        for i in candidates:
+            counts[i] += 1
+        
+        self.combinationSum2Helper(counts, res, target, list(), 1)
+        
+        return res
+    
+    def combinationSum2Helper(self, counts: List[int], res: List[List[int]], target: int, path: List[int], index: int):
+        if target == 0:
+            res.append(path.copy())
+            return
+        
+        for i in range(index, len(counts), 1):
+            if i <= target and counts[i] > 0:
+                counts[i] -= 1
+                path.append(i)
+                self.combinationSum2Helper(counts, res, target - i, path, i)
+                path.pop()
+                counts[i] += 1
+            else:
+                if i > target:
+                    return
+        
+    def minMaxGame(self, nums: List[int]) -> int:
         if len(nums) == 1:
             return nums[0]
         newNums = [0] * int(len(nums)/2)
@@ -14,7 +44,7 @@ class Solution:
         return self.minMaxGame(newNums)        
 
     
-    def findLHS(self, nums: list[int]) -> int:
+    def findLHS(self, nums: List[int]) -> int:
         counts = {}
         for num in nums:
             if num not in counts:

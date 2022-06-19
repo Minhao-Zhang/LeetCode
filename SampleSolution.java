@@ -1,6 +1,35 @@
-import java.util.HashMap;
+import java.util.*;
 
 public class SampleSolution {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(candidates.length == 0) return res;
+        
+        int[] counts = new int[51];
+        for(int c : candidates) counts[c]++;
+        
+        combinationSum2Helper(counts, res, target, new ArrayList<Integer>(), 1);
+        
+        return res;
+    }
+    
+    private void combinationSum2Helper(int[] counts, List<List<Integer>> res, int target, List<Integer> path, int index) {
+        if(target == 0) {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        
+        for(int i = index; i < counts.length; i++) {
+            if(i <= target && counts[i] > 0) {
+                counts[i]--;
+                path.add(i);
+                combinationSum2Helper(counts, res, target - i, path, i);
+                path.remove(path.size()-1);
+                counts[i]++;
+            } else if(i > target) return;
+        }
+    }
+
     public static int minMaxGame(int[] nums) {
         if(nums.length==1) return nums[0];
         int[] newNums = new int[nums.length/2];
