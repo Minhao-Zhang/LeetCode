@@ -1,8 +1,29 @@
 import math
 from typing import List
+from functools import cmp_to_key
 
 
 class Solution:
+    def reorderLogFiles(self, logs: List[str]) -> List[str]:
+        def compare(x: str, y: str) -> int: 
+            xInt = x.find(" ")
+            yInt = y.find(" ")
+            xChar = x[xInt + 1]
+            yChar = y[yInt + 1]
+            if xChar <= '9' :
+                if yChar <= '9':
+                    return 0
+                else: 
+                    return 1 
+            if yChar <= '9':
+                return -1
+            
+            temp = x[xInt:] == y[yInt:]
+            if temp:
+                return (x[:xInt + 1] > y[:yInt + 1]) * 2 - 1
+            return (x[xInt:] > y[yInt:]) * 2 - 1
+        return sorted(logs, key=cmp_to_key(compare))
+        
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         res: list[list[int]] = list()
         if len(candidates) == 0:

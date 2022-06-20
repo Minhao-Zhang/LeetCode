@@ -4,8 +4,21 @@ from typing import List
 
 
 class SampleSolution:
+    def reorderLogFiles(self, logs: List[str]) -> List[str]:
+        digits = []
+        letters = []
+        
+        for l in logs:
+            if l.split(" ")[1].isdigit():
+                digits.append(l)
+            else:
+                letters.append(l)
+        
+        letters.sort(key=lambda log: log.split(" ", 1)[0])
+        letters.sort(key=lambda log: log.split(" ", 1)[1])
+        return letters + digits
+    
     def combinationSum2(self, candidates: List[int], target: int) -> list[List[int]]:
-
         def backtrack(comb, remain, curr, results):
 
             if remain == 0:

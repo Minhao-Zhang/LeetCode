@@ -4,5 +4,7 @@ import SampleSolution
 sol = Solution.Solution()
 sam = SampleSolution.SampleSolution()
 
-print(sol.minMaxGame([1,3,5,2,4,8,2,2]))
+input = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
+
+print(sol.reorderLogFiles(input))
 print(sam.findLHS([1,3,2,2,5,2,3,7]))

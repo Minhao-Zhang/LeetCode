@@ -2,6 +2,56 @@ import java.util.*;
 
 
 public class Solution {
+    public static String[] reorderLogFiles(String[] logs) {
+        for (int i = logs.length - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+                String[] fst = logs[j].split(" ");
+                String[] sec = logs[j + 1].split(" ");
+                boolean swap = false;
+                if (fst[1].charAt(0) < 97 && sec[1].charAt(0) < 97) {
+                    swap = false;
+                } else if (fst[1].charAt(0) < 97 && sec[1].charAt(0) >= 97) {
+                    swap = true;
+                } else if (fst[1].charAt(0) >= 97 && sec[1].charAt(0) < 97) {
+                    swap = false;
+                } else {
+                    int res = 0;
+                    int index = 1;
+                    while (res == 0 && index < Math.min(fst.length, sec.length)) {
+                        res = fst[index].compareTo(sec[index]);
+                        index++;
+                    }
+                    if (res == 0) {
+                        if (fst.length != sec.length) {
+                            if (fst.length < sec.length) {
+                                swap = false;
+                            } else {
+                                swap = true;
+                            }
+                        } else {
+                            if (fst[0].compareTo(sec[0]) > 0) {
+                                swap = true;
+                            }
+                        }
+                    } else {
+                        if (res > 0) {
+                            swap = true;
+                        }
+                    }
+                }
+                
+                if (swap) {
+                    String front = logs[j];
+                    String back = logs[j + 1];
+                    logs[j] = back;
+                    logs[j + 1] =  front;
+                }
+            }
+        }
+
+        return logs;
+    }
+    
     public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         List<Integer> curr = new ArrayList<Integer>();
