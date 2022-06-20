@@ -4,6 +4,20 @@ from functools import cmp_to_key
 
 
 class Solution:
+    def freqAlphabets(self, s: str) -> str:
+        res = ""
+        i = len(s) - 1
+        while (i >= 0):
+            if s[i] == '#':
+                num = int(s[i - 2 : i])
+                i -= 3
+            else:
+                num = int(s[i : i + 1])
+                i -= 1
+            
+            res = chr(num + 96) + res
+        return res
+        
     def buildArray(self, target: List[int], n: int) -> List[str]:
         res: List[str] = []
         index = 0

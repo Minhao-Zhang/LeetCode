@@ -4,6 +4,18 @@ from typing import List
 
 
 class SampleSolution:
+    def freqAlphabets(self, s: str) -> str:
+        i = len(s) - 1
+        ans = []
+        while i >= 0:
+            if s[i] == '#':
+                ans.append(chr(ord('`')+int(s[i-2:i])))
+                i -= 3
+            else:
+                ans.append(chr(ord('`')+int(s[i])))
+                i -= 1
+        return ''.join(reversed(ans))
+    
     def buildArray(self, target: List[int], n: int) -> List[str]:
         target_set = set(target)
         maximum = min(target[-1], n)
