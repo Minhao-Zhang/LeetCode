@@ -1,6 +1,21 @@
 import java.util.*;
 
 public class Solution {
+    public static List<String> buildArray(int[] target, int n) {
+        List<String> res = new ArrayList<>();
+        int index = 0;
+        for (int i = 0; i < n && index < target.length; i++) {
+            if (target[index] == i + 1) {
+                res.add("Push");
+                index++;
+            } else {
+                res.add("Push");
+                res.add("Pop");
+            }
+        }
+        return res;
+    }
+
     public static int findJudge(int n, int[][] trust) {
         if (n == 1) return 1;
         int[] truster = new int[n];

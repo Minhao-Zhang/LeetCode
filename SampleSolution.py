@@ -4,6 +4,18 @@ from typing import List
 
 
 class SampleSolution:
+    def buildArray(self, target: List[int], n: int) -> List[str]:
+        target_set = set(target)
+        maximum = min(target[-1], n)
+        output = []
+        for i in range(1, maximum + 1):
+            if i in target_set:
+                output.append("Push")
+            else:
+                output.extend(["Push", "Pop"])
+        
+        return output
+    
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
         if not trust and n==1: return 1
         if len(trust) < n-1: return -1

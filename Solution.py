@@ -4,6 +4,20 @@ from functools import cmp_to_key
 
 
 class Solution:
+    def buildArray(self, target: List[int], n: int) -> List[str]:
+        res: List[str] = []
+        index = 0
+        i = 0
+        while (i < n and index < len(target)):
+            if target[index] == i + 1:
+                res.append("Push")
+                index += 1
+            else: 
+                res.append("Push")
+                res.append("Pop")
+            i += 1
+        return res
+    
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
         if n == 1: return 1
         
