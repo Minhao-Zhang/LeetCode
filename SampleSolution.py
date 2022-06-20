@@ -4,6 +4,21 @@ from typing import List
 
 
 class SampleSolution:
+    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+        if not trust and n==1: return 1
+        if len(trust) < n-1: return -1
+        l1 = [a for a, b in trust]
+        l2 = set(b for a,b in trust)
+        miss_vals = set(range(1,n+1)) - set(l1)
+        for val in miss_vals:
+            l3 = [a for a, b in trust if b == val]
+            if not l3: continue
+            l3.append(val)
+            l3.sort()
+            if l3 == list(range(1,n+1)):
+                return val            
+        return -1
+    
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
         digits = []
         letters = []

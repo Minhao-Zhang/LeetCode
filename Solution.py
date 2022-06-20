@@ -4,6 +4,22 @@ from functools import cmp_to_key
 
 
 class Solution:
+    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+        if n == 1: return 1
+        
+        truster: List[int] = [0]*n
+        trustee: List[int] = [0]*n
+        
+        for i in range(len(trust)):
+            truster[trust[i][0] - 1] += 1
+            trustee[trust[i][1] - 1] += 1
+        
+        for i in range(n):
+            if trustee[i] == n - 1 and truster[i] == 0:
+                return i + 1
+        
+        return -1
+    
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
         def compare(x: str, y: str) -> int: 
             xInt = x.find(" ")

@@ -1,6 +1,24 @@
 import java.util.*;
 
 public class SampleSolution {
+    public static int findJudge(int n, int[][] trust) {
+        if (n == 1) return 1;
+        int[] truster = new int[n];
+        int[] trustee = new int[n];
+        for (int i = 0; i < trust.length; i++) {
+            truster[trust[i][0] - 1]++;
+            trustee[trust[i][1] - 1]++;
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (trustee[i] == n - 1 && truster[i] == 0) {
+                return i + 1;
+            }
+        }
+
+        return -1;
+    }
+
     public static String[] reorderLogFiles(String[] logs) {
         Comparator<String> myComp = new Comparator<String>() {
         @Override

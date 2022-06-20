@@ -1,13 +1,13 @@
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         long startTime = System.nanoTime();
-        String[] input = new String[]{"dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"};
-        System.out.println(Arrays.toString(Solution.reorderLogFiles(input)));
+        int[][] input = new int[2][2];
+        input[0] = new int[]{1,3};
+        input[1] = new int[]{2,3};
+        System.out.println(Solution.findJudge(3, input));
         long endTime = System.nanoTime();
         long startSolutionTime = System.nanoTime();
-        System.out.println(Arrays.toString(SampleSolution.reorderLogFiles(input)));
+        System.out.println(Solution.findJudge(3, input));
         long endSolutionTime = System.nanoTime();
 
         System.out.println("My time:       " + (endTime - startTime)/1000000 + " ms");
