@@ -1,6 +1,39 @@
 import java.util.*;
 
 public class SampleSolution {
+    private int totalTilt = 0;
+
+    public int findTilt(TreeNode root) {
+        this.totalTilt = 0;
+        this.findTiltHelper(root);
+        return this.totalTilt;
+    }
+
+    private int findTiltHelper(TreeNode node) {
+        if (node == null)
+            return 0;
+
+        int leftSum = this.findTiltHelper(node.left);
+        int rightSum = this.findTiltHelper(node.right);
+        int tilt = Math.abs(leftSum - rightSum);
+        this.totalTilt += tilt;
+
+        return node.val + leftSum + rightSum;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
     public static String freqAlphabets(String s) {
         char[] ch = s.toCharArray();
         char[] c = new char[s.length()];
