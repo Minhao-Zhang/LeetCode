@@ -3,6 +3,7 @@
 ## Problem History
 | Date | Problem Number | Problem Name | Method Name | Difficulty |
 | ---- | -------------- | ------------ | ----------- | ---------- |
+| June 25 | 1662 | Check If Two String Arrays are Equivalent | arrayStringsAreEqual | Easy |
 | June 25 | 1869 | Longer Contiguous Segments of Ones than Zeros | checkZeroOnes | Easy |
 | June 25 | 121 | Best Time to Buy and Sell Stock | maxProfit | Easy |
 | June 21 | 563 |  Binary Tree Tilt | findTilt | Easy |

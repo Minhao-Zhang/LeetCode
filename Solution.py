@@ -4,6 +4,9 @@ from functools import cmp_to_key
 
 
 class Solution:
+    def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
+        return "".join(word1) == "".join(word2)
+    
     def checkZeroOnes(self, s: str) -> bool:
         oneLen = 0
         zeroLen = 0

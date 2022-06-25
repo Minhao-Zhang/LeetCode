@@ -4,6 +4,9 @@ from typing import List
 
 
 class SampleSolution:
+    def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
+        return "".join(word1) == "".join(word2)
+    
     def checkZeroOnes(self, s: str) -> bool:
         cnt_one, max_one = 0, 0
         cnt_zero, max_zero = 0, 0
