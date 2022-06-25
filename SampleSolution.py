@@ -5,7 +5,7 @@ from typing import List
 
 class SampleSolution:
     def maxProfit(self, prices: List[int]) -> int:
-        minPrice, maxProfit = float(inf), 0
+        minPrice, maxProfit = float(math.inf), 0
         for price in prices:
             if price < minPrice:
                 minPrice = price
