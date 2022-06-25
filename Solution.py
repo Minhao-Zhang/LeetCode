@@ -4,6 +4,12 @@ from functools import cmp_to_key
 
 
 class Solution:
+    class TreeNode:
+        def __init__(self, val=0, left=None, right=None):
+            self.val = val
+            self.left = left
+            self.right = right
+            
     def findTilt(self, root: TreeNode) -> int:
         total_tilt = 0
 

@@ -4,6 +4,23 @@ from typing import List
 
 
 class SampleSolution:
+    def maxProfit(self, prices: List[int]) -> int:
+        minPrice, maxProfit = float(inf), 0
+        for price in prices:
+            if price < minPrice:
+                minPrice = price
+
+            curProfit = price - minPrice
+            if curProfit > maxProfit:
+                maxProfit = curProfit
+
+        return maxProfit
+    class TreeNode:
+        def __init__(self, val=0, left=None, right=None):
+            self.val = val
+            self.left = left
+            self.right = right
+    
     def findTilt(self, root: TreeNode) -> int:
         total_tilt = 0
 

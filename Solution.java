@@ -1,6 +1,19 @@
 import java.util.*;
 
 public class Solution {
+    public static int maxProfit(int[] prices) {
+        int min = prices[0];
+        int profit = 0;
+        for (int i : prices) {
+            if (i < min) {
+                min = i;
+            } else {
+                profit = Math.max(i - min, profit);
+            }
+        }
+        return profit;
+    }
+
     private int totalTilt = 0;
 
     public int findTilt(TreeNode root) {

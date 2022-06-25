@@ -3,6 +3,7 @@
 ## Problem History
 | Date | Problem Number | Problem Name | Method Name | Difficulty |
 | ---- | -------------- | ------------ | ----------- | ---------- |
+| June 25 | 121 | Best Time to Buy and Sell Stock | maxProfit | Easy |
 | June 21 | 563 |  Binary Tree Tilt | findTilt | Easy |
 | June 20 | 1309 | Decrypt String from Alphabet to Integer Mapping | freqAlphabets | Easy |
 | June 20 | 1441 | Build an Array With Stack Operations | buildArray | Easy |
