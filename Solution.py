@@ -4,6 +4,35 @@ from functools import cmp_to_key
 
 
 class Solution:
+    def checkZeroOnes(self, s: str) -> bool:
+        oneLen = 0
+        zeroLen = 0
+
+        for i in range(len(s)):
+            if s[i] == '0':
+                count = 0;
+                for i in range(i, len(s), 1):
+                    if s[i] == '0':
+                        count += 1
+                    else:
+                        break
+                i += count
+                if count > zeroLen:
+                    zeroLen = count
+            else:
+                count = 0;
+                for i in range(i, len(s), 1):
+                    if s[i] == '1':
+                        count += 1
+                    else:
+                        break
+                i += count
+                if count > oneLen:
+                    oneLen = count
+        return oneLen > zeroLen
+                    
+        
+        
     def maxProfit(self, prices: List[int]) -> int:
         min = prices[0]
         profit = 0

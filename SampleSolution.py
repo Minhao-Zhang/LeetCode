@@ -4,6 +4,26 @@ from typing import List
 
 
 class SampleSolution:
+    def checkZeroOnes(self, s: str) -> bool:
+        cnt_one, max_one = 0, 0
+        cnt_zero, max_zero = 0, 0
+        prev = None
+        
+        for c in s:
+            if c == "1":
+                cnt_one += 1
+                max_one = max(max_one, cnt_one)
+                cnt_zero = 0
+
+            else:
+                cnt_zero += 1
+                max_zero = max(max_zero, cnt_zero)
+                cnt_one = 0
+            
+            prev = c
+        
+        return max_one > max_zero
+    
     def maxProfit(self, prices: List[int]) -> int:
         minPrice, maxProfit = float(math.inf), 0
         for price in prices:

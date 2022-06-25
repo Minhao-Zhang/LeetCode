@@ -1,6 +1,25 @@
 import java.util.*;
 
 public class SampleSolution {
+    public boolean checkZeroOnes(String s) {
+        if (s == null || s.length() == 0) {
+            return false;
+        }
+        int ones = 0, zeroes = 0, maxOnes = 0, maxZeroes = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '1') {
+                ones++;
+                zeroes = 0;
+                maxOnes = Math.max(maxOnes, ones);
+            } else {
+                zeroes++;
+                ones = 0;
+                maxZeroes = Math.max(maxZeroes, zeroes);
+            }
+        }
+        return maxOnes > maxZeroes;
+    }
+
     public static int maxProfit(int[] prices) {
         int buy = Integer.MAX_VALUE, sell = 0;
         for(int price : prices) {

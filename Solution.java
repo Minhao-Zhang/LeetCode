@@ -1,6 +1,26 @@
 import java.util.*;
 
 public class Solution {
+    public static boolean checkZeroOnes(String s) {
+        int zeroCount = 0;
+        int oneCount = 0;
+        int zeroLen = 0;
+        int oneLen = 0;
+
+        for (char c : s.toCharArray()) {
+            if (c == '0') {
+                zeroCount++;
+                zeroLen = Math.max(zeroCount, zeroLen);
+                oneCount = 0;
+            } else {
+                oneCount++;
+                oneLen = Math.max(oneCount, oneLen);
+                zeroCount = 0;
+            }
+        }
+        return oneLen > zeroLen;
+    }
+    
     public static int maxProfit(int[] prices) {
         int min = prices[0];
         int profit = 0;
