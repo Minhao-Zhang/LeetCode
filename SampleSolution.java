@@ -1,7 +1,26 @@
 import java.util.*;
 
 public class SampleSolution {
-    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer>map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++)
+        {
+            int diff = target - nums[i];
+            
+            if (map.containsKey(diff))
+            {
+                return new int[] {map.get(diff), i};
+            }
+            else
+            {
+                map.put(nums[i], i);
+            }
+                
+        }
+        return new int[]{0,0};
+    }
+
+    public static boolean arrayStringsAreEqual(String[] word1, String[] word2) {
         StringBuilder str1 = new StringBuilder();
         StringBuilder str2 = new StringBuilder();
         
@@ -16,7 +35,7 @@ public class SampleSolution {
         return str1.toString().equals(str2.toString());
     }
 
-    public boolean checkZeroOnes(String s) {
+    public static boolean checkZeroOnes(String s) {
         if (s == null || s.length() == 0) {
             return false;
         }

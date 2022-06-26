@@ -4,6 +4,14 @@ from typing import List
 
 
 class SampleSolution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in hashmap:
+                return [i, hashmap[complement]]
+            hashmap[nums[i]] = i
+    
     def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
         return "".join(word1) == "".join(word2)
     

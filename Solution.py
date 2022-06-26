@@ -4,6 +4,16 @@ from functools import cmp_to_key
 
 
 class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        position = {}
+        for i in range(len(nums)):
+            position[nums[i]] = i
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in position and position[complement] != i:
+                return [i, position[complement]] 
+
+    
     def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
         return "".join(word1) == "".join(word2)
     
