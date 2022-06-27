@@ -9,17 +9,17 @@ public class SampleSolution {
         int iProbe = 0;
         
         while (iProbe <= chars.length) {
-          if (iProbe < chars.length && chars[iProbe] >= '0' && chars[iProbe] <= '9') {
-            ++iProbe;
-          } else if (iStart + 1 < iProbe && chars[iStart] == '0') {
-            ++iStart;
-          } else if (iStart < iProbe) {
-            distinctIntegers.add(new String(chars, iStart, iProbe - iStart));
-    
-            iStart = ++iProbe;
-          } else {
-            iStart = ++iProbe;
-          }
+            if (iProbe < chars.length && chars[iProbe] >= '0' && chars[iProbe] <= '9') {
+                ++iProbe;
+            } else if (iStart + 1 < iProbe && chars[iStart] == '0') {
+                ++iStart;
+            } else if (iStart < iProbe) {
+                distinctIntegers.add(new String(chars, iStart, iProbe - iStart));
+
+                 iStart = ++iProbe;
+            } else {
+                iStart = ++iProbe;
+            }
         }
         
         return distinctIntegers.size();
