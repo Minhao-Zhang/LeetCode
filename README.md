@@ -3,6 +3,7 @@
 ## Problem History
 | Date | Problem Number | Problem Name | Method Name | Difficulty |
 | ---- | -------------- | ------------ | ----------- | ---------- |
+| June 26 | 1502 | Can Make Arithmetic Progression From Sequence | canMakeArithmeticProgression | Easy |
 | June 26 | 1805 | Number of Different Integers in a String | numDifferentIntegers | Easy |
 | June 26 | 1    | Two Sum | twoSum | Easy |
 | June 25 | 1662 | Check If Two String Arrays are Equivalent | arrayStringsAreEqual | Easy |

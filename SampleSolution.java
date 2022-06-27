@@ -1,7 +1,39 @@
 import java.util.*;
 
 public class SampleSolution {
-    public int numDifferentIntegers(String word) {
+    public static boolean canMakeArithmeticProgression(int[] arr) {
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        
+        for(int i : arr){
+            min = Math.min(min, i);
+            max = Math.max(max, i);
+        }
+        
+        if((max - min) % (arr.length - 1) != 0){
+            return false;
+        }
+        
+        int d = (max - min) / (arr.length - 1);
+        
+        for(int i = 0; i < arr.length; i++){
+            if(min + (d * i) == arr[i]) continue;
+            
+            if((arr[i] - min) % d != 0) return false;
+            int correctPos = (arr[i] - min) / d;
+            
+            if(arr[correctPos] == arr[i]) return false; // duplicates
+            else{
+                int t = arr[i];
+                arr[i] = arr[correctPos];
+                arr[correctPos] = t;
+                i--;
+            }
+        }
+        return true;
+    }
+    
+    public static int numDifferentIntegers(String word) {
         Set<String> distinctIntegers = new HashSet<>();
         
         char[] chars = word.toCharArray();

@@ -4,6 +4,14 @@ from typing import List
 
 
 class SampleSolution:
+    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+        arr.sort()
+        diff=abs(arr[0] - arr[1])
+        for i in range(1,len(arr)-1):
+            if abs(arr[i] - arr[i+1]) != diff:
+                return False
+        return True
+    
     def numDifferentIntegers(self, word: str) -> int:
         word = word + 'a'
         ht = dict() 

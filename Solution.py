@@ -2,10 +2,16 @@ import math
 from typing import List
 from functools import cmp_to_key
 
-from pkg_resources import working_set
-
-
 class Solution:
+    def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+        arr.sort()
+        step = arr[0] - arr[1]
+                
+        for i in range(len(arr) - 1):
+            if arr[i] - step != arr[i + 1]:
+                return False
+        return True
+    
     def numDifferentIntegers(self, word: str) -> int:
         integers = set()
         i = 0
