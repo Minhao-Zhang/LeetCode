@@ -1,6 +1,30 @@
 import java.util.*;
 
 public class SampleSolution {
+    public int numDifferentIntegers(String word) {
+        Set<String> distinctIntegers = new HashSet<>();
+        
+        char[] chars = word.toCharArray();
+        int iStart = 0;
+        int iProbe = 0;
+        
+        while (iProbe <= chars.length) {
+          if (iProbe < chars.length && chars[iProbe] >= '0' && chars[iProbe] <= '9') {
+            ++iProbe;
+          } else if (iStart + 1 < iProbe && chars[iStart] == '0') {
+            ++iStart;
+          } else if (iStart < iProbe) {
+            distinctIntegers.add(new String(chars, iStart, iProbe - iStart));
+    
+            iStart = ++iProbe;
+          } else {
+            iStart = ++iProbe;
+          }
+        }
+        
+        return distinctIntegers.size();
+    }
+    
     public static int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer>map = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++)

@@ -1,6 +1,31 @@
 import java.util.*;
 
 public class Solution {
+    public static int numDifferentIntegers(String word) {
+        Set<String> ints = new HashSet<>();
+        
+        String temp = "";
+        for (char c : word.toCharArray()) {
+            if ('a' <= c && c <= 'z') {
+                if (!temp.equals("")) {
+                    ints.add(temp);
+                    temp = "";
+                }
+            } else {
+                if (temp.length() != 1 || temp.charAt(0) != '0') {
+                    temp += c;
+                } else {
+                    temp = "";
+                    temp += c;
+                }
+            }
+        }
+        if (!temp.equals("")) {
+            ints.add(temp);
+        }
+        return ints.size();
+    }
+
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {

@@ -4,6 +4,20 @@ from typing import List
 
 
 class SampleSolution:
+    def numDifferentIntegers(self, word: str) -> int:
+        word = word + 'a'
+        ht = dict() 
+        
+        tmpStr = ""
+        for ch in word:
+            if not 'a' <= ch <= 'z':
+                tmpStr += ch
+            else:
+                if tmpStr != "":
+                    ht[int(tmpStr)] = 1
+                    tmpStr = "" 
+        return len(ht)
+    
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         hashmap = {}
         for i in range(len(nums)):

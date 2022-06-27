@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         long startTime = System.nanoTime();
         int[] input = new int[]{1,2};
-        System.out.println(Solution.maxProfit(input));
+        System.out.println(Solution.numDifferentIntegers("0leet01234code001234"));
         long endTime = System.nanoTime();
         long startSolutionTime = System.nanoTime();
         System.out.println(Solution.maxProfit(input));

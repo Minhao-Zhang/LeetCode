@@ -2,8 +2,28 @@ import math
 from typing import List
 from functools import cmp_to_key
 
+from pkg_resources import working_set
+
 
 class Solution:
+    def numDifferentIntegers(self, word: str) -> int:
+        integers = set()
+        i = 0
+        while i < len(word):
+            if word[i].isdigit():
+                num = word[i]
+                j = 0
+                for j in range(len(word) - i - 1):
+                    if word[i + j + 1].isdigit():
+                        num += word[i + j + 1]
+                    else:
+                        break
+                integers.add(int(num))
+                i = i + j + 1
+            i += 1
+
+        return len(integers)
+    
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         position = {}
         for i in range(len(nums)):

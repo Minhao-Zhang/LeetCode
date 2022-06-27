@@ -3,6 +3,7 @@
 ## Problem History
 | Date | Problem Number | Problem Name | Method Name | Difficulty |
 | ---- | -------------- | ------------ | ----------- | ---------- |
+| June 26 | 1805 | Number of Different Integers in a String | numDifferentIntegers | Easy
 | June 26 | 1 | Two Sum | twoSum | Easy |
 | June 25 | 1662 | Check If Two String Arrays are Equivalent | arrayStringsAreEqual | Easy |
 | June 25 | 1869 | Longer Contiguous Segments of Ones than Zeros | checkZeroOnes | Easy |
